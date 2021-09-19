@@ -1,0 +1,145 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.welcome {
+	text-align: center;
+}
+
+#screen {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+#timeline {
+	position: absolute;
+	top: 0;
+	bottom: 3.5em;
+	overflow-y: auto;
+	width: 100%;
+	background-image: url("img/bg.jpg");
+  background-repeat: repeat;
+}
+#messages {
+	height: 100%;
+	width: 100%;
+	display: table;
+}
+#messages > div {
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	display: table-cell;
+	vertical-align: bottom;
+	padding-bottom: 1em;
+}
+#messages > div:after { 
+	content: " "; 
+	display: block;
+	clear: both;
+}
+
+@keyframes wipe {
+	from { max-height: 0; padding: 0 1em; }
+}
+
+.messagebox {
+	overflow: hidden;
+	position: relative;
+	max-width: 60%;
+	max-height: 100%;
+	overflow-wrap: break-word;
+	word-break: break-all;
+	padding: 1em;
+	margin: 0.5em 1em;
+	box-shadow: 0 2px 5px gray;
+	border-radius: 10px;
+	clear: both;
+	animation-name: wipe;
+	animation-duration: 0.4s;
+	transition: float 0.4s;
+}
+.messagebox p {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+.messagegreen {
+	background-color: lightgreen;
+}
+.messageblue {
+	background-color: lightskyblue;
+}
+
+.messageleft {
+	float: left;
+}
+.messageright {
+	float: right;
+}
+.messageleft + .messageright, .messageright + .messageleft {
+	margin: 1em 1em 0.5em 1em;
+}
+
+#input {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 3.5em;
+	background: lightgray;
+	box-shadow: 0 0 5px gray;
+	text-align: center;
+	vertical-align: middle;
+}
+#chatbox {
+	width: 80%;
+	border: 2px darkgrey;
+	border-radius: 10px;
+	margin: 1em auto;
+	padding: 0.5em;
+}
+#send-button {
+	background-color: transparent;
+	border: none;
+	height: 60%;
+	margin: 1em auto;
+	object-fit: scale-down;
+	vertical-align: middle;
+}
+#send-button > img {
+	height: 100%;
+	width: auto;
+}
+
+@keyframes pulse {
+	0%   { opacity: 20%; }
+	20%  { opacity: 60%; }
+	40%  { opacity: 20%; }
+	100% { opacity: 20%; }
+}
+.dot {
+	opacity: 20%;
+	background-color: black;
+	border-radius: 5px;
+	width: 10px;
+	height: 10px;
+	margin: 0 0.2em;
+	display: inline-block;
+}
+.dot-1 {
+	animation: pulse 1s linear 0s infinite;
+}
+.dot-2 {
+	animation: pulse 1s linear 0.2s infinite;
+}
+.dot-3 {
+	animation: pulse 1s linear 0.4s infinite;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>plural chat</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+	<div id="screen">
+		<div id="timeline">
+			<div id="messages">
+				<div id="messages-inner">
+					<div class="welcome">
+						<h3>Welcome to PluralChat!</h3>
+						<p>A local-only "IM client" for talking to a headmate!</p>
+						<p>Click on the typing indicator to switch speaker</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="input">
+			<input type="text" id="chatbox" name="chatbox" />
+			<button id="send-button" onclick="sendMessage();"><img src="img/send.svg"/></button>
+		</div>
+	</div>
+	<script src="app.js"></script>
+</body>
+</html>
