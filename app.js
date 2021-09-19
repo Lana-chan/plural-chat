@@ -67,6 +67,7 @@ const makeMessageBox = ()=>{
 		newMessageDiv.classList.add("messageright");
 		newMessageDiv.classList.add("messagegreen");
 	}
+	scrollToBottom();
 	return newMessageDiv;
 }
 
@@ -87,15 +88,23 @@ const makeDots = (element)=>{
 
 const sendMessage = ()=>{
 	if (textInput.value) {
-		removeTyping();
 		let message = textInput.value;
 		textInput.value = "";
-		let newMessageDiv = makeMessageBox();
+		let lastChild = messagesDiv.lastChild;
+		let newMessageDiv = undefined;
+		if (lastChild.classList != undefined && lastChild.classList.contains("typing")) {
+			newMessageDiv = lastChild;
+			newMessageDiv.classList.remove("typing");
+			while (newMessageDiv.firstChild) {
+				newMessageDiv.removeChild(newMessageDiv.lastChild);
+			}
+		} else {
+			newMessageDiv = makeMessageBox();
+			messagesDiv.appendChild(newMessageDiv);
+		}
 		let newMessageText = document.createTextNode(message);
 		newMessageDiv.appendChild(newMessageText);
-		messagesDiv.appendChild(newMessageDiv);
 		scrollCount = 40;
-		scrollToBottom();
 		switchSpeaker();
 		textInput.focus();
 	}
@@ -115,3 +124,7 @@ textInput.addEventListener("input", (event)=>{
 		removeTyping();
 	}
 });
+
+window.onload = function() {
+  textInput.focus();
+}
