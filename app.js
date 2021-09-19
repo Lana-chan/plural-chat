@@ -38,8 +38,9 @@ const addTyping = ()=>{
 	newMessageDiv.classList.add("typing");
 	makeDots(newMessageDiv);
 
-	newMessageDiv.addEventListener("mousedown", (event)=>{
+	newMessageDiv.addEventListener("mouseup", (event)=>{
 		switchSpeaker(newMessageDiv);
+		textInput.focus();
 	});	
 
 	messagesDiv.appendChild(newMessageDiv);
@@ -92,6 +93,7 @@ const sendMessage = ()=>{
 		scrollCount = 40;
 		scrollToBottom();
 		switchSpeaker();
+		textInput.focus();
 	}
 };
 
