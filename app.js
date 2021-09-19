@@ -29,6 +29,7 @@ const switchSpeaker = (elem)=>{
 			elem.classList.add("messageblue");
 		}
 	}
+	textInput.focus();
 }
 
 const addTyping = ()=>{
@@ -40,8 +41,11 @@ const addTyping = ()=>{
 
 	newMessageDiv.addEventListener("mouseup", (event)=>{
 		switchSpeaker(newMessageDiv);
+	});
+
+	newMessageDiv.addEventListener("touchend", (event)=>{
 		textInput.focus();
-	});	
+	});
 
 	messagesDiv.appendChild(newMessageDiv);
 }
