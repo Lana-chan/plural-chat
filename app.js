@@ -8,7 +8,7 @@ var scrollCount;
 const scrollToBottom = ()=>{
 	timelineDiv.scrollTop = timelineDiv.scrollHeight
 	scrollCount--;
-	if(scrollCount) setTimeout(scrollToBottom, 10);
+	if(scrollCount > 0) setTimeout(scrollToBottom, 10);
 };
 
 const switchSpeaker = (elem)=>{
