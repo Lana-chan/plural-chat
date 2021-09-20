@@ -14,7 +14,7 @@ const scrollToBottom = ()=>{
 const switchSpeaker = (elem)=>{
 	if (currentSpeaker == "left") {
 		currentSpeaker = "right";
-		if (elem) {
+		if (elem && elem.classList && elem.classList.contains("typing")) {
 			elem.classList.remove("messageleft");
 			elem.classList.remove("messageblue");
 			elem.classList.add("messageright");
@@ -22,7 +22,7 @@ const switchSpeaker = (elem)=>{
 		}
 	} else {
 		currentSpeaker = "left";
-		if (elem) {
+		if (elem && elem.classList && elem.classList.contains("typing")) {
 			elem.classList.remove("messageright");
 			elem.classList.remove("messagegreen");
 			elem.classList.add("messageleft");
