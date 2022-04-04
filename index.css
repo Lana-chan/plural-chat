@@ -56,7 +56,6 @@ html, body {
 	max-width: 60%;
 	max-height: 100%;
 	overflow-wrap: break-word;
-	word-break: break-all;
 	padding: 1em;
 	margin: 0.5em 1em;
 	box-shadow: 0 2px 5px gray;
